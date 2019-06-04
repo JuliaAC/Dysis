@@ -1,0 +1,24 @@
+{% extends 'paars/base.html' %}
+
+
+{% block title %}
+<div class="small-header">
+    </div>
+{% endblock %}
+
+{% block content %}
+        <br>
+              <h2 class="post-title">
+                Foto's
+              </h2><br>
+<div class="row">
+{% for picture in pictures %}
+    <div class="col-sm-4"><img src="/static/img/{{ picture.document }}" style="max-width: 200px"><p class="post-subtitle">
+        {{ picture.description|linebreaksbr|urlize }}
+    </p></div>
+{% empty %}
+<p>Er zijn op dit geen foto's die kunnen worden weergegeven</p>
+          <hr>
+{% endfor %}
+</div>
+{% endblock %}

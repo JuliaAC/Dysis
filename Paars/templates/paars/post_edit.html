@@ -1,0 +1,20 @@
+{% extends 'paars/base.html' %}
+
+
+{% block title %}
+<div class="small-header">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="post-preview">
+    <br>
+<h2 class="post-title">Bewerken/Toevoegen</h2>
+    <br>
+    <p class="post-subtitle">
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Opslaan</button>
+</form></p></div><hr>
+
+{% endblock %}

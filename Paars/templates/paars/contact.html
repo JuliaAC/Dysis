@@ -1,0 +1,33 @@
+{% extends 'paars/base.html' %}
+
+
+{% block title %}
+<div class="small-header">
+    </div>
+{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+<div class="post-preview">
+    <br>
+              <h2 class="post-title">
+                {{ post.title }}
+              </h2>
+    <br>
+              <p class="post-subtitle">
+                {{ post.text|linebreaksbr|urlize }}
+              </p>
+    <div class="row">
+{% for picture in pictures %}
+    <div class="col-sm-4"><img src="/static/img/{{ picture.document }}" style="max-width: 400px"></div><br>
+          <hr>
+{% endfor %}
+</div>
+          </div>
+          <hr>
+{% endfor %}
+{% if user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'post_edit' pk=8 %}">Bewerk</a>
+<hr>
+{% endif %}
+{% endblock %}

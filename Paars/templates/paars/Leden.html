@@ -1,0 +1,30 @@
+{% extends 'paars/base.html' %}
+
+
+{% block title %}
+<div class="small-header">
+    </div>
+{% endblock %}
+
+{% block content %}
+        <br>
+              <h2 class="post-title">
+                Leden
+              </h2><br>
+{% for dysisci in dysiscis %}
+<div class="post-preview">
+    {% ifchanged dysisci.generatie %}
+    <h3><b> Paars {{ dysisci.generatie }}</b></h3><hr>
+    {% endifchanged %}
+              <h4 class="post-title">
+                {{ dysisci.naam|title }}
+              </h4>
+                <div class="row">
+                    <div class="col"><img src="/static/img/{{ dysisci.foto }}" width="200"></div>
+              <div class="col-8"><p class="post-subtitle">
+                {{ dysisci.info|linebreaksbr|urlize }}
+              </p></div></div>
+          </div>
+          <hr>
+{% endfor %}
+{% endblock %}

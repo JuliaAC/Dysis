@@ -1,0 +1,25 @@
+{% extends 'paars/base.html' %}
+
+
+{% block title %}
+<div class="small-header">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="post-preview">
+    <br>
+              <h2 class="post-title">
+                404: Pagina niet gevonden
+              </h2>
+    <br>
+              <p class="post-subtitle">
+                Helaas is de pagina die u wilt bezoeken niet beschikbaar.
+              </p>
+          </div>
+          <hr>
+{% if user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'post_edit' pk=10 %}">Bewerk</a>
+<hr>
+{% endif %}
+{% endblock %}
